@@ -26,6 +26,7 @@
   --accent-glow: rgba(21, 156, 142, 0.08);
   --green: #22c55e;
   --green-soft: rgba(34, 197, 94, 0.12);
+  --grid-dot: rgba(140, 181, 173, 0.06);
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -47,6 +48,7 @@
   --accent-glow: rgba(13, 122, 110, 0.06);
   --green: #16a34a;
   --green-soft: rgba(22, 163, 74, 0.08);
+  --grid-dot: rgba(13, 31, 28, 0.05);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -876,6 +878,104 @@ footer {
   padding: 0 28px 60px;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+/* ===== VISUAL ACCENTS (added) =====================================
+   Theme-adaptive decorative graphics: hero neural-network motif,
+   faint dot-grid texture on flat sections, and a subtle domain
+   glyph watermark on each project card. All use theme variables so
+   they recolor themselves in light and dark mode. */
+
+/* Hero neural-network graphic (home) */
+.hero-net {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  width: min(560px, 50vw);
+  color: var(--accent);
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+[data-theme="light"] .hero-net { opacity: 0.30; }
+.hero-net svg { width: 100%; height: auto; display: block; }
+.hero-net .edge { stroke: currentColor; stroke-width: 1; opacity: 0.45; }
+.hero-net .node { fill: currentColor; }
+.hero-net .pulse { animation: nodePulse ease-in-out infinite; transform-origin: center; }
+@keyframes nodePulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+/* Dot-grid texture on flat full-width bands */
+.stats-strip,
+.cta-section {
+  background-color: var(--surface);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* Domain glyph watermark on project cards */
+.project-glyph {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 118px;
+  height: 118px;
+  color: var(--accent);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+[data-theme="light"] .project-glyph { opacity: 0.09; }
+.project-glyph svg { width: 100%; height: 100%; }
+.project-card > *:not(.project-glyph) { position: relative; z-index: 1; }
+
+@media (max-width: 900px) {
+  .hero-net { opacity: 0.10; right: -22%; width: 80%; }
+  [data-theme="light"] .hero-net { opacity: 0.16; }
+}
+@media (max-width: 600px) {
+  .hero-net { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-net .pulse { animation: none; opacity: 0.7; }
+}
+
+/* Faint dot-grid texture behind main sections (both pages) */
+.section {
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* Mirrored network motif filling the timeline's empty side (work) */
+.page-work #experience { position: relative; }
+.page-work #experience > *:not(.exp-net) { position: relative; z-index: 1; }
+.exp-net {
+  position: absolute;
+  top: 140px;
+  right: -20px;
+  width: min(380px, 36vw);
+  color: var(--accent);
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+  transform: scaleX(-1);
+}
+[data-theme="light"] .exp-net { opacity: 0.22; }
+.exp-net svg { width: 100%; height: auto; display: block; }
+.exp-net .edge { stroke: currentColor; stroke-width: 1; opacity: 0.45; }
+.exp-net .node { fill: currentColor; }
+.exp-net .pulse { animation: nodePulse ease-in-out infinite; transform-origin: center; }
+@media (max-width: 900px) { .exp-net { opacity: 0.08; width: 55%; } }
+@media (max-width: 600px) { .exp-net { display: none; } }
+@media (prefers-reduced-motion: reduce) { .exp-net .pulse { animation: none; opacity: 0.7; } }
+
+/* A touch more depth on the icon tiles */
+.skill-icon, .service-icon {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, transparent 100%);
+  border: 1px solid rgba(21, 156, 142, 0.14);
+}
+.edu-icon {
+  background: linear-gradient(135deg, var(--green-soft) 0%, transparent 100%);
 }
 
 /* ===== SCROLL REVEAL (shared) ===== */
