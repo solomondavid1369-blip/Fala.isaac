@@ -6,17 +6,9 @@
    ========================================================= */
 
 /* ----- Heading font ----------------------------------------
-   Loaded from a third-party CDN. If you want it fully self-
-   contained for hosting, download Gonnex-Bold.woff, drop it
-   next to this file, and change the url() below to
-   url('Gonnex-Bold.woff'). Headings fall back to Inter if it
-   fails to load. */
-@font-face {
-  font-family: 'Gonnex';
-  src: url('https://fonts.cdnfonts.com/s/91555/Gonnex-Bold.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-}
+   Headings use 'Space Grotesk', loaded reliably from Google
+   Fonts via the <link> in each page's <head>. Falls back to
+   Inter, then the system sans-serif, if it ever fails to load. */
 
 :root {
   --bg: #0a0f0e;
@@ -26,8 +18,8 @@
   --border-hover: #243330;
   --text-primary: #e8f5f2;
   --text-secondary: #8cb5ad;
-  --text-tertiary: #5a8a80;
-  --text-muted: #3a5c55;
+  --text-tertiary: #74a399;
+  --text-muted: #567f76;
   --accent: #159C8E;
   --accent-light: #C5F2E4;
   --accent-soft: rgba(21, 156, 142, 0.12);
@@ -115,7 +107,7 @@ nav {
   justify-content: space-between;
 }
 .nav-logo {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 0.5px;
@@ -225,7 +217,7 @@ nav {
   min-width: 0;
 }
 .hero h1 {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: clamp(32px, 4.5vw, 52px);
   font-weight: 700;
   line-height: 1.1;
@@ -373,7 +365,7 @@ nav {
   gap: 6px;
 }
 .stat-value {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: var(--text-primary);
@@ -403,7 +395,7 @@ nav {
   margin-bottom: 12px;
 }
 .section-title {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -507,7 +499,7 @@ nav {
   margin-bottom: 4px;
 }
 .timeline-role {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: var(--text-primary);
@@ -613,7 +605,7 @@ nav {
   margin-bottom: 8px;
 }
 .project-title {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--text-primary);
@@ -687,7 +679,7 @@ nav {
 }
 .skill-icon svg { width: 20px; height: 20px; color: var(--accent); }
 .skill-title {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
@@ -731,7 +723,7 @@ nav {
 }
 .service-icon svg { width: 22px; height: 22px; color: var(--accent); }
 .service-name {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
@@ -774,7 +766,7 @@ nav {
 }
 .edu-icon svg { width: 20px; height: 20px; color: var(--green); }
 .edu-title {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
@@ -819,7 +811,7 @@ nav {
   z-index: 1;
 }
 .cta-title {
-  font-family: 'Gonnex', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 700;
   letter-spacing: -0.5px;
