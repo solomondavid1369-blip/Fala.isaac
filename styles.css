@@ -366,6 +366,18 @@ nav {
   flex-direction: column;
   gap: 6px;
 }
+.stat-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent-soft) 0%, transparent 100%);
+  border: 1px solid rgba(21, 156, 142, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.stat-icon svg { width: 16px; height: 16px; color: var(--accent); }
 .stat-value {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 32px;
@@ -892,16 +904,16 @@ footer {
   top: 50%;
   right: -30px;
   transform: translateY(-50%);
-  width: min(560px, 50vw);
+  width: min(640px, 55vw);
   color: var(--accent);
-  opacity: 0.16;
+  opacity: 0.32;
   pointer-events: none;
   z-index: 0;
 }
-[data-theme="light"] .hero-net { opacity: 0.30; }
+[data-theme="light"] .hero-net { opacity: 0.42; }
 .hero-net svg { width: 100%; height: auto; display: block; }
-.hero-net .edge { stroke: currentColor; stroke-width: 1; opacity: 0.45; }
-.hero-net .node { fill: currentColor; }
+.hero-net .edge { stroke: currentColor; stroke-width: 1.1; opacity: 0.55; }
+.hero-net .node { fill: currentColor; filter: drop-shadow(0 0 5px currentColor); }
 .hero-net .pulse { animation: nodePulse ease-in-out infinite; transform-origin: center; }
 @keyframes nodePulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
 
@@ -918,14 +930,14 @@ footer {
   position: absolute;
   top: -14px;
   right: -14px;
-  width: 118px;
-  height: 118px;
+  width: 140px;
+  height: 140px;
   color: var(--accent);
-  opacity: 0.07;
+  opacity: 0.11;
   pointer-events: none;
   z-index: 0;
 }
-[data-theme="light"] .project-glyph { opacity: 0.09; }
+[data-theme="light"] .project-glyph { opacity: 0.13; }
 .project-glyph svg { width: 100%; height: 100%; }
 .project-card > *:not(.project-glyph) { position: relative; z-index: 1; }
 
@@ -953,17 +965,17 @@ footer {
   position: absolute;
   top: 140px;
   right: -20px;
-  width: min(380px, 36vw);
+  width: min(420px, 40vw);
   color: var(--accent);
-  opacity: 0.13;
+  opacity: 0.24;
   pointer-events: none;
   z-index: 0;
   transform: scaleX(-1);
 }
-[data-theme="light"] .exp-net { opacity: 0.22; }
+[data-theme="light"] .exp-net { opacity: 0.34; }
 .exp-net svg { width: 100%; height: auto; display: block; }
-.exp-net .edge { stroke: currentColor; stroke-width: 1; opacity: 0.45; }
-.exp-net .node { fill: currentColor; }
+.exp-net .edge { stroke: currentColor; stroke-width: 1.1; opacity: 0.55; }
+.exp-net .node { fill: currentColor; filter: drop-shadow(0 0 5px currentColor); }
 .exp-net .pulse { animation: nodePulse ease-in-out infinite; transform-origin: center; }
 @media (max-width: 900px) { .exp-net { opacity: 0.08; width: 55%; } }
 @media (max-width: 600px) { .exp-net { display: none; } }
@@ -977,6 +989,36 @@ footer {
 .edu-icon {
   background: linear-gradient(135deg, var(--green-soft) 0%, transparent 100%);
 }
+
+/* Domain glyph watermark on skill & service cards */
+.skill-card, .service-card { position: relative; overflow: hidden; }
+.skill-glyph, .service-glyph {
+  position: absolute;
+  right: -16px;
+  bottom: -16px;
+  width: 108px;
+  height: 108px;
+  color: var(--accent);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+[data-theme="light"] .skill-glyph, [data-theme="light"] .service-glyph { opacity: 0.10; }
+.skill-glyph svg, .service-glyph svg { width: 100%; height: 100%; }
+.skill-card > *:not(.skill-glyph), .service-card > *:not(.service-glyph) { position: relative; z-index: 1; }
+
+/* Accent bar that lights up on hover (skill & service cards) */
+.skill-card::before, .service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 2;
+}
+.skill-card:hover::before, .service-card:hover::before { opacity: 1; }
 
 /* ===== SCROLL REVEAL (shared) ===== */
 .reveal {
