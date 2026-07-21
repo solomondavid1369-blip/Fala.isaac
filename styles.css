@@ -1081,6 +1081,26 @@ footer {
   box-shadow: 0 1px 2px rgba(13, 31, 28, 0.05), 0 12px 30px rgba(13, 31, 28, 0.05);
 }
 
+/* Wide network band filling the open space under the page-nav button */
+.flow-band {
+  max-width: 1000px;
+  margin: 4px auto 0;
+  padding: 0 28px;
+  color: var(--accent);
+  opacity: 0.15;
+  pointer-events: none;
+}
+[data-theme="light"] .flow-band { opacity: 0.24; }
+.flow-band svg { width: 100%; height: auto; display: block; }
+.flow-band .edge { stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+.flow-band .node { fill: currentColor; filter: drop-shadow(0 0 4px currentColor); }
+.flow-band .pulse { animation: nodePulse ease-in-out infinite; transform-origin: center; }
+/* The band now fills the gap, so trim the section's own trailing padding */
+#experience { padding-bottom: 40px; }
+#experience .page-nav { padding-bottom: 10px; }
+@media (max-width: 760px) { .flow-band { opacity: 0.10; } }
+@media (prefers-reduced-motion: reduce) { .flow-band .pulse { animation: none; } }
+
 /* Constellation motif beside every section heading (fills the empty
    space next to headers, both pages) */
 .section-header { position: relative; }
