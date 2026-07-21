@@ -993,9 +993,9 @@ footer {
   background-size: 34px 34px;
 }
 
-/* Mirrored network motif filling the timeline's empty side (work) */
-.page-work #experience { position: relative; }
-.page-work #experience > *:not(.exp-net) { position: relative; z-index: 1; }
+/* Network motif filling the timeline's empty side (both pages) */
+#experience { position: relative; }
+#experience > *:not(.exp-net) { position: relative; z-index: 1; }
 .exp-net {
   position: absolute;
   top: 140px;
@@ -1080,6 +1080,33 @@ footer {
 [data-theme="light"] .edu-card {
   box-shadow: 0 1px 2px rgba(13, 31, 28, 0.05), 0 12px 30px rgba(13, 31, 28, 0.05);
 }
+
+/* Constellation motif beside every section heading (fills the empty
+   space next to headers, both pages) */
+.section-header { position: relative; }
+.section-header > *:not(.section-deco) { position: relative; z-index: 1; }
+.section-deco {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 230px;
+  max-width: 40%;
+  color: var(--accent);
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+[data-theme="light"] .section-deco { opacity: 0.26; }
+.section-deco svg { width: 100%; height: auto; display: block; }
+.section-deco .edge { stroke: currentColor; stroke-width: 1.1; opacity: 0.5; }
+.section-deco .node { fill: currentColor; filter: drop-shadow(0 0 4px currentColor); }
+.section-deco .pulse { animation: nodePulse ease-in-out infinite; transform-origin: center; }
+@media (max-width: 760px) {
+  .section-deco { opacity: 0.09; width: 150px; }
+  [data-theme="light"] .section-deco { opacity: 0.14; }
+}
+@media (prefers-reduced-motion: reduce) { .section-deco .pulse { animation: none; opacity: 0.7; } }
 
 /* ===== SCROLL REVEAL (shared) ===== */
 .reveal {
