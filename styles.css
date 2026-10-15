@@ -1197,3 +1197,19 @@ footer {
   footer { flex-direction: column; gap: 16px; text-align: center; }
   .theme-toggle { bottom: 16px; right: 16px; width: 44px; height: 44px; }
 }
+
+/* ===== MINIMAL MODE — cleaner, less decorative ===== */
+/* Remove the network / constellation motifs */
+.hero-net, .exp-net, .section-deco, .flow-band { display: none !important; }
+/* Remove faint dot-grid texture */
+.stats-strip, .cta-section, .section { background-image: none; }
+/* Remove card watermark glyphs */
+.project-glyph, .skill-glyph, .service-glyph { display: none !important; }
+/* Simplify the photo card: clean frame, no spinning glow or cursor highlight */
+.hero-img-wrap::before { display: none; }
+.hero-img-frame::after { display: none; }
+.hero-img-frame {
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+[data-theme="light"] .hero-img-frame { box-shadow: 0 24px 60px rgba(13, 31, 28, 0.12); }
